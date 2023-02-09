@@ -1,0 +1,19 @@
+{
+    "name": "username/manao",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "App\\Model\\": "App/Model/",
+            "App\\Controller\\": "App/Controller/",
+            "App\\Helper\\": "App/Helper/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dmitry Skavinski",
+            "email": "d.skavinskiy@mail.ru"
+        }
+    ],
+    "require": {}
+}
