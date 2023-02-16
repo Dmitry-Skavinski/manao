@@ -119,7 +119,7 @@ class Validator
             $fieldName = $this->lastField;
         }
 
-        if (!preg_match('/\s/i', $this->fields[$fieldName])) {
+        if (preg_match('/\s/', $this->fields[$fieldName])) {
             $this->errors[$fieldName][] = $fieldName . ' has spaces';
         }
         $this->lastField = $fieldName;
@@ -132,7 +132,7 @@ class Validator
             $fieldName = $this->lastField;
         }
 
-        if (!preg_match('/[^a-z0-9 ]/i', $this->fields[$fieldName])) {
+        if (preg_match('/[^a-z0-9 ]/i', $this->fields[$fieldName])) {
             $this->errors[$fieldName][] = $fieldName . ' has special characters';
         }
         $this->lastField = $fieldName;
@@ -145,7 +145,7 @@ class Validator
             $fieldName = $this->lastField;
         }
 
-        if (!preg_match('/\w+@\w+\.[a-z]{2,}/i', $this->fields[$fieldName])) {
+        if (!preg_match('/^\w+@\w+\.[a-z]{2,}$/i', $this->fields[$fieldName])) {
             $this->errors[$fieldName][] = $fieldName . ' is not valid';
         }
         $this->lastField = $fieldName;
