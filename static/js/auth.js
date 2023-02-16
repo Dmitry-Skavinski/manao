@@ -1,7 +1,7 @@
 async function handleRegister(event) {
     event.preventDefault();
     const formData = Object.fromEntries(new FormData(registerForm));
-    const response = await fetch('register', {
+    const response = await fetch('/register', {
         method: 'post',
         body: JSON.stringify(formData),
         headers: {
@@ -17,7 +17,7 @@ async function handleRegister(event) {
 async function handleLogin(event) {
     event.preventDefault();
     const formData = Object.fromEntries(new FormData(loginForm));
-    const response = await fetch('login', {
+    const response = await fetch('/login', {
         method: 'post',
         body: JSON.stringify(formData),
         headers: {

@@ -13,10 +13,10 @@ class UserController extends Controller
         }
         $form = json_decode(file_get_contents('php://input'), true);
         $validator = Validator::validate($form)->min(2, 'name')->onlyLetters()
-            ->hasDigits('password')->hasLetters()->min(6)
+            ->hasDigits('password')->hasLetters()->min(6)->noSpaces()->noSpecials()
             ->areFieldsEqual('password', 'confirm_password')
             ->isEmail('email')->isUnique('users')
-            ->min(6, 'login')->isUnique('users');
+            ->min(6, 'login')->isUnique('users')->noSpaces();
 
         if ($validator->errors()) {
             echo json_encode(['errors' => $validator->errors()]);

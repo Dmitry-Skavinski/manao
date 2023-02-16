@@ -14,6 +14,6 @@
 <body>
 <h1>Hello <?= $data['name'] ?></h1>
 <button id="logout">log out</button>
-<script src="static/js/logout.js"></script>
+<script src="/static/js/logout.js"></script>
 </body>
 </html>

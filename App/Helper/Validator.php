@@ -113,6 +113,32 @@ class Validator
         return $this;
     }
 
+    public function noSpaces(string $fieldName = ''): Validator
+    {
+        if ($fieldName === '') {
+            $fieldName = $this->lastField;
+        }
+
+        if (!preg_match('/\s/i', $this->fields[$fieldName])) {
+            $this->errors[$fieldName][] = $fieldName . ' has spaces';
+        }
+        $this->lastField = $fieldName;
+        return $this;
+    }
+
+    public function noSpecials(string $fieldName = ''): Validator
+    {
+        if ($fieldName === '') {
+            $fieldName = $this->lastField;
+        }
+
+        if (!preg_match('/[^a-z0-9 ]/i', $this->fields[$fieldName])) {
+            $this->errors[$fieldName][] = $fieldName . ' has special characters';
+        }
+        $this->lastField = $fieldName;
+        return $this;
+    }
+
     public function isEmail(string $fieldName = ''): Validator
     {
         if ($fieldName === '') {
